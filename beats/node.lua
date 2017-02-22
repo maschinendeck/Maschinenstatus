@@ -11,10 +11,32 @@ util.data_mapper{
     end;
 }
 
+local Mlogo = resource.load_image{
+    file = "MLogo-weiss.png";
+    mipmap = true;
+}
+
+
+local logoSize = 300
 function node.render()
     local time = (base_time + (sys.now() / 86.4)) % 1000
-    out = "@ " .. math.floor(time) .. " .beats"
-    size = 100
+    local timeR = math.floor(time)
+    local timeRT = timeR
+    if timeR < 100 then
+        timeRT = '0' .. timeR
+    end
+    if timeR < 10 then
+        timeRT = '00' .. timeR
+    end
+    if timeR == 1 then
+        out = "@ " .. timeRT .. " .beat"
+    else
+        out = "@ " .. timeRT .. " .beats"
+    end
+    size = 125
     width = font:width(out, size)
-    font:write(WIDTH / 2 - width / 2, HEIGHT / 2 - size / 2, out, 100, 1,1,1,1)
+    posY = (0 - size - logoSize) + ((sys.now()*300) % (HEIGHT + size + logoSize))
+    font:write(WIDTH / 2 - width / 2, posY, out, size, 1,1,1,1)
+    posY = posY + size
+    Mlogo:draw(WIDTH / 2 - logoSize / 2, posY, WIDTH / 2 + logoSize / 2, posY + logoSize)
 end
