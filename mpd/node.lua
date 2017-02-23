@@ -1,6 +1,6 @@
 gl.setup(1920, 1080)
 
-local font = resource.load_font("Overpass-ExtraLight.ttf")
+local font = resource.load_font("silkscreen.ttf")
 
 local song_status = N.song_status or "stop"
 local song_title = N.song_title or "unknown"
@@ -24,7 +24,7 @@ util.data_mapper{
 }
 
 function node.render()
-    gl.clear(1, 1, 1, 1)
+    gl.clear(1, 0, 0, 1)
     local status = N.song_status
     if status == "stop" then
         out = "MPD stopped"
@@ -36,6 +36,6 @@ function node.render()
     end
     size = 50
     width = font:width(out, size)
-    font:write(WIDTH / 2 - width / 2, HEIGHT / 2 - size / 2, out, size, 0,0,0,1)
+    font:write(WIDTH / 2 - width / 2, HEIGHT / 2 - size / 2, out, size, 1,1,0,1)
     
 end
