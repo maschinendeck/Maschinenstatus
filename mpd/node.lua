@@ -1,4 +1,4 @@
-gl.setup(1920, 1080)
+gl.setup(1920, 200)
 
 local font = resource.load_font("silkscreen.ttf")
 
@@ -29,13 +29,13 @@ function node.render()
     if status == "stop" then
         out = "MPD stopped"
     else
-        out = N.song_artist ..  " - " .. N.song_title  
+        out = song_artist ..  " - " .. song_title  
         if status == "pause" then
             out = "{paused} " .. out
         end
     end
     size = 50
     width = font:width(out, size)
-    font:write(WIDTH / 2 - width / 2, HEIGHT / 2 - size / 2, out, size, 1,1,0,1)
+    font:write(WIDTH / 2 - width / 2, 100 - size / 2, out, size, 1,1,0,1)
     
 end
