@@ -1,6 +1,6 @@
-gl.setup(1920, 200)
+gl.setup(900, 100)
 
-local font = resource.load_font("silkscreen.ttf")
+local font = resource.load_font("ufonts.com_futura-opentype.otf")
 
 local song_status = N.song_status or "stop"
 local song_title = N.song_title or "unknown"
@@ -24,18 +24,18 @@ util.data_mapper{
 }
 
 function node.render()
-    gl.clear(1, 0, 0, 1)
+    gl.clear(0.8, 0.8, 0.8, 1)
     local status = N.song_status
     if status == "stop" then
         out = "MPD stopped"
     else
-        out = song_artist ..  " - " .. song_title  
+        out = N.song_artist ..  " - " .. N.song_title  
         if status == "pause" then
             out = "{paused} " .. out
         end
     end
-    size = 50
+    size = 70
     width = font:width(out, size)
-    font:write(WIDTH / 2 - width / 2, 100 - size / 2, out, size, 1,1,0,1)
+    font:write(WIDTH / 2 - width / 2, HEIGHT / 2 - size / 2, out, size, 0,0,0,1)
     
 end

@@ -8,4 +8,4 @@ def beatsTime():
     return time.time()
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-sock.sendto('beats/time/set:%d' % beatsTime(), ('127.0.0.1', 4444))
+sock.sendto('Maschinenstatus/clock/time/set:%d' % beatsTime(), ('127.0.0.1', 4444))
