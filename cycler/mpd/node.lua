@@ -1,6 +1,6 @@
 gl.setup(1920, 980)
 
-local font = resource.load_font("ufonts.com_futura-opentype.otf")
+local font = resource.load_font("futura-opentype.otf")
 
 util.resource_loader{
     "cover.jpg",
