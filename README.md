@@ -1,5 +1,5 @@
 # Maschinenstatus
-## A statusscreen for our Hackerspace using info-beamer
+### A statusscreen for our Hackerspace using info-beamer
 
 This project uses [info-beamer](https://info-beamer.com/) do display status information.
 
@@ -8,8 +8,9 @@ The top node displays the clock while the bottom node cycles between different n
 
 * clock -> display the time
 * cycler -> cycle between nodes:
-** mpd -> display the current song from the mpd
-** raumqtt -> display information from MQTT (e.g. raumstatus, clients)
+    * mpd -> display the current song from the mpd
+    * raumqtt -> display information from MQTT (e.g. raumstatus, clients)
+
 
 ### Planned nodes:
 * twitterwall -> display tweets by [@Maschinendeck\_](https://twitter.com/Maschinendeck_) and others.
