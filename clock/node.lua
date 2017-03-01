@@ -1,5 +1,6 @@
 gl.setup(1920, 100)
 local font = resource.load_font("futura_opentype.otf")
+local logo = resource.load_image("Logo.png")
 
 local base_time = N.base_time or (-60*60)
 util.data_mapper{
@@ -43,4 +44,11 @@ function node.render()
     size = 70
     width = font:width(out, size)
     font:write(WIDTH / 2 - width / 2, HEIGHT / 2 - size / 2, out, size, 0,0,0,1)
+
+    if minute == "23" or beatsTimeRT == "000"
+    then 
+        logo:draw(90,90,5,5)
+    else
+        logo:draw(5,5,90,90)
+    end
 end
