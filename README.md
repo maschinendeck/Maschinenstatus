@@ -10,8 +10,8 @@ The top node displays the clock while the bottom node cycles between different n
 * cycler -> cycle between nodes:
     * mpd -> display the current song from the mpd
     * raumqtt -> display information from MQTT (e.g. raumstatus, clients)
+    * matenode -> display prices of beverages and maybe some beverage related stats.
 
 
 ### Planned nodes:
 * twitterwall -> display tweets by [@Maschinendeck\_](https://twitter.com/Maschinendeck_) and others.
-* mate -> display prices of beverages and maybe some beverage related stats.
