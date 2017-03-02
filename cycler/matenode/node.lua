@@ -1,4 +1,4 @@
-gl.setup(1600, 900)
+gl.setup(1920, 980)
 
 local font = resource.load_font("Inconsolata.otf")
 local logo = resource.load_image("mate.png")
