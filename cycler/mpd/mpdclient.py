@@ -5,9 +5,9 @@ from shutil import copyfile
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 client = MPDClient()
-client.connect('localhost',6600)
+client.connect('maschinenpi.fftr',6600)
 
-musicDir = "/home/towa/Music/"
+musicDir = "/home/pi/Music/"
 
 while 1:
     response = client.status()
