@@ -1,11 +1,17 @@
-import socket, re
+import socket, re,time
 from os import listdir
 from mpd import MPDClient
 from shutil import copyfile
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 client = MPDClient()
-client.connect('maschinenpi.fftr',6600)
+
+while not connected:
+    try:
+        client.connect('maschinenpi.fftr',6600)
+        connected = True
+    except:
+        time.sleep(1)
 
 musicDir = "/home/pi/Music/"
 
