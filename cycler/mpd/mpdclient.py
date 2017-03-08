@@ -1,5 +1,4 @@
-import socket, re,time
-from os import listdir
+import socket, re, time, os
 from mpd import MPDClient
 from shutil import copyfile
 
@@ -46,11 +45,12 @@ while 1:
         if musicDir:
             path = musicDir + re.search('.*/',song['file']).group(0)
             cover = False
-            for p in listdir(path):
-                if p in ['cover.jpg','Cover.jpg']:
-                    copyfile(path + p, 'cycler/mpd/cover.jpg')
-                    print("cover found: " + path + p)
-                    cover = True
+            if os.path.isdir(path):
+                for p in os.listdir(path):
+                    if p in ['cover.jpg','Cover.jpg']:
+                        copyfile(path + p, 'cycler/mpd/cover.jpg')
+                        print("cover found: " + path + p)
+                        cover = True
             if not cover:
                 copyfile('cycler/mpd/nocover.jpg', 'cycler/mpd/cover.jpg')
 
