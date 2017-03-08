@@ -1,6 +1,7 @@
 gl.setup(1920, 980)
 
 local font = resource.load_font("Inconsolata.otf")
+local font_futura = resource.load_font("futura-opentype.otf")
 local logo = resource.load_image("mate.png")
 local lines = {}
 local caffeine = 0
@@ -38,7 +39,7 @@ end)
 
 function node.render()
     gl.clear(0.1, 0.1, 0.1, 1)
-    font:write(100,50,caffeine,40,1,1,1,1)
+    font_futura:write(100,50,caffeine,50,1,1,1,1)
     local logo_size = 600
     local offset = 150
     logo:draw(WIDTH-logo_size-offset,offset,WIDTH - offset,logo_size + offset)
