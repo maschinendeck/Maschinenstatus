@@ -6,6 +6,7 @@ from shutil import copyfile
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 client = MPDClient()
 
+connected = False
 while not connected:
     try:
         client.connect('maschinenpi.fftr',6600)
