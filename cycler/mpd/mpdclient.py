@@ -24,24 +24,20 @@ while 1:
     if status in ['play', 'pause']:
         songID = int(response['songid'])
         song = client.playlistid(songID)[0]
+
+        title = artist = album = "unknown"
         if ('title' in song):
             title = song['title']
-        else:
-            title = "unknown"
         if ('artist' in song):
             artist = song['artist']
-        else:
-            artist = "unknown"
         if ('album' in song):
             album = song['album']
-        else:
-            album = "unknown"
+
         sock.sendto('Maschinenstatus/cycler/mpd/title/set:%s' % title, ('127.0.0.1', 4444))
-        print("sending title :" + title)
         sock.sendto('Maschinenstatus/cycler/mpd/artist/set:%s' % artist, ('127.0.0.1', 4444))
-        print("sending artist :" + artist)
         sock.sendto('Maschinenstatus/cycler/mpd/album/set:%s' % album, ('127.0.0.1', 4444))
-        print("sending album :" + album)
+
+        # look for covers
         if musicDir:
             path = musicDir + re.search('.*/',song['file']).group(0)
             cover = False
@@ -53,5 +49,14 @@ while 1:
                         cover = True
             if not cover:
                 copyfile('cycler/mpd/nocover.jpg', 'cycler/mpd/cover.jpg')
+
+        # playback modes
+        modes = ""
+        options = ["repeat","random","consume","single"]
+        for o in options:
+            if response[o] == "1":
+                modes += o + " "
+        sock.sendto('Maschinenstatus/cycler/mpd/modes/set:%s' % modes, ('127.0.0.1', 4444))
+        print ("sending modes" + modes)
 
     client.idle()
