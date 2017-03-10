@@ -20,7 +20,7 @@ end
 util.file_watch("events.json", function(content)
     events = json.decode(content)
     for idx, event in ipairs(events) do
-        event.title = cutLongTitle(900,80,event.title)
+        event.title = cutLongTitle(850,80,event.title)
     end
     
 end)
